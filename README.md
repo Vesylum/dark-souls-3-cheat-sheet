@@ -6,6 +6,16 @@ This checklist was created by adopting the source code from the [Dark Souls 2 Ch
 
 The walkthrough is thanks to [DeathGodGarra's NPC Side Quests Guide V2](https://www.gamefaqs.com/boards/168566-dark-souls-iii/73599466).
 
+## Running Locally
+
+You can open `index.html` directly in a browser, but many features work best when
+served over HTTP. Start a local server with Python and navigate to
+`http://localhost:8000`:
+
+```bash
+python -m http.server
+```
+
 ## Contribution Guide
 
 If you are interested in contributing to this guide, I welcome Pull Requests.

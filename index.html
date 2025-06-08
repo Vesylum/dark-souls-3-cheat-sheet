@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="img/favicon-152.png">
   <meta name="twitter:url" content="https://zkjellberg.github.io/dark-souls-3-cheat-sheet/">
 </head>
-<body>
+<body id="top">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -70,7 +70,7 @@
             <span class="glyphicon glyphicon-eye-close"></span>
             <span class="glyphicon glyphicon-eye-open"></span>
             Hide Completed
-            <a class="btn btn-default btn-sm fadingbutton togglehide" onclick="$('#toggleHideCompleted').click();">
+            <a class="btn btn-default btn-sm fadingbutton togglehide" role="button" aria-label="Toggle Hide Completed" onclick="$('#toggleHideCompleted').click();">
               <span class="glyphicon glyphicon-eye-close"></span>
               <span class="glyphicon glyphicon-eye-open"></span>
               Hide Completed
@@ -2826,14 +2826,19 @@
     <input name="upload" type="file" id="fileInput" />
   </div>
 
-  <a class="btn btn-default btn-sm fadingbutton back-to-top">Back to Top&thinsp;<span class="glyphicon glyphicon-arrow-up"></span></a>
+  <a class="btn btn-default btn-sm fadingbutton back-to-top" href="#top" role="button" aria-label="Back to Top">Back to Top&thinsp;<span class="glyphicon glyphicon-arrow-up"></span></a>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/andris9/jStorage@0.4.12/jstorage.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.15.0/jets.min.js"></script>
   <script src="js/jquery.highlight.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
