@@ -19,9 +19,10 @@ python -m http.server
 ### Offline Availability
 
 The checklist registers a service worker so that once the page has been loaded,
-its assets are cached for offline use. If updates to the site don't appear after
-reloading, clear your browser data to force the service worker to fetch the
-latest files.
+its assets are cached for offline use. When the service worker updates, caches
+from older versions are removed so the newest deployment replaces outdated
+files. If updates to the site don't appear after reloading, clear your browser
+data to force the service worker to fetch the latest files.
 
 ## Contribution Guide
 
