@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ds3-checklist-v1';
+const CACHE_NAME = 'ds3-checklist-v2';
 const urlsToCache = [
   './',
   './index.html',
@@ -8,7 +8,8 @@ const urlsToCache = [
   './css/main.css',
   './img/favicon.ico',
   './img/favicon-152.png',
-  './img/pinned-tab-icon.svg'
+  './img/pinned-tab-icon.svg',
+  'https://cdn.jsdelivr.net/gh/andris9/jStorage@0.4.12/jstorage.min.js'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
