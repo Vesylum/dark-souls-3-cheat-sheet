@@ -9,7 +9,7 @@ const urlsToCache = [
   './img/favicon.ico',
   './img/favicon-152.png',
   './img/pinned-tab-icon.svg',
-  'https://cdn.jsdelivr.net/gh/andris9/jStorage@0.4.12/jstorage.min.js'
+  './js/jstorage.min.js'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
