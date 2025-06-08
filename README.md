@@ -16,6 +16,13 @@ served over HTTP. Start a local server with Python and navigate to
 python -m http.server
 ```
 
+### Offline Availability
+
+The checklist registers a service worker so that once the page has been loaded,
+its assets are cached for offline use. If updates to the site don't appear after
+reloading, clear your browser data to force the service worker to fetch the
+latest files.
+
 ## Contribution Guide
 
 If you are interested in contributing to this guide, I welcome Pull Requests.
