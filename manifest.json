@@ -1,0 +1,22 @@
+{
+  "name": "Dark Souls 3 Cheat Sheet",
+  "short_name": "DS3 Cheats",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "img/favicon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "img/pinned-tab-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -8,7 +8,8 @@ const urlsToCache = [
   './css/main.css',
   './img/favicon.ico',
   './img/favicon-152.png',
-  './img/pinned-tab-icon.svg'
+  './img/pinned-tab-icon.svg',
+  './manifest.json',
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
