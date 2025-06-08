@@ -23,6 +23,7 @@ var profilesKey = 'darksouls3_profiles';
     };
 
     var profiles = $.jStorage.get(profilesKey, {});
+    if (!('version' in profiles)) profiles.version = 1;
 
     /// assure default values are set
     /// necessary 'cause we're abusing local storage to store JSON data
@@ -215,6 +216,9 @@ var profilesKey = 'darksouls3_profiles';
             }
             try {
                 var jsonProfileData = JSON.parse(document.getElementById("profileText").value);
+                if (!isValidProfileData(jsonProfileData)) {
+                    throw new Error('Invalid profile data');
+                }
                 profiles = jsonProfileData;
                 $.jStorage.set(profilesKey, profiles);
                 populateProfiles();
@@ -331,6 +335,13 @@ var profilesKey = 'darksouls3_profiles';
             };
     }
 
+    function isValidProfileData(data) {
+        return typeof data === 'object' && data !== null &&
+               (profilesKey in data) &&
+               ('current' in data) &&
+               typeof data[profilesKey] === 'object';
+    }
+
     /// restore all saved state, except for the current tab
     /// used on page load or when switching profiles
     function restoreState(profile_name) {
@@ -384,13 +395,20 @@ var profilesKey = 'darksouls3_profiles';
     }
 
     function dataLoadCallback(arg){
-      var jsonProfileData = JSON.parse(arg.currentTarget.result);
-      profiles = jsonProfileData;
-      $.jStorage.set(profilesKey, profiles);
-      populateProfiles();
-      populateChecklists();
-      $('#profiles').trigger("change");
-      location.reload();
+      try {
+        var jsonProfileData = JSON.parse(arg.currentTarget.result);
+        if (!isValidProfileData(jsonProfileData)) {
+          throw new Error('Invalid profile data');
+        }
+        profiles = jsonProfileData;
+        $.jStorage.set(profilesKey, profiles);
+        populateProfiles();
+        populateChecklists();
+        $('#profiles').trigger("change");
+        location.reload();
+      } catch(e) {
+        alert(e);
+      }
     }
 
     function populateProfiles() {
@@ -569,22 +587,17 @@ var profilesKey = 'darksouls3_profiles';
             contentTag: '#armors_list ul'
         })];
 
-        $('#playthrough_search').keyup(function() {
-            $('#playthrough_list').unhighlight();
-            $('#playthrough_list').highlight($(this).val());
-        });
-        $('#item_search').keyup(function() {
-            $('#item_list').unhighlight();
-            $('#item_list').highlight($(this).val());
-        });
-        $('#weapons_search').keyup(function() {
-            $('#weapons_list').unhighlight();
-            $('#weapons_list').highlight($(this).val());
-        });
-        $('#armors_search').keyup(function() {
-            $('#armors_list').unhighlight();
-            $('#armors_list').highlight($(this).val());
-        });
+        function setupSearchHighlight(searchSelector, listSelector) {
+            $(searchSelector).on('keyup', function() {
+                $(listSelector).unhighlight();
+                $(listSelector).highlight($(this).val());
+            });
+        }
+
+        setupSearchHighlight('#playthrough_search', '#playthrough_list');
+        setupSearchHighlight('#item_search', '#item_list');
+        setupSearchHighlight('#weapons_search', '#weapons_list');
+        setupSearchHighlight('#armors_search', '#armors_list');
     });
 
     /*
