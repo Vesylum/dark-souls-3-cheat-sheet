@@ -41,7 +41,7 @@ var profilesKey = 'darksouls3_profiles';
         });
 
         // Open external links in new tab
-        $("a[href^='http']").attr('target','_blank');
+        $("a[href^='http']").attr({target: "_blank", rel: "noopener noreferrer"});
 
         populateProfiles();
 
