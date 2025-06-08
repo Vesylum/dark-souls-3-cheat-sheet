@@ -23,6 +23,12 @@ its assets are cached for offline use. If updates to the site don't appear after
 reloading, clear your browser data to force the service worker to fetch the
 latest files.
 
+### Installing the App
+
+In browsers that support Progressive Web Apps (PWAs) you can install this
+checklist like a regular application. Look for the install or "Add to Home
+Screen" option in your browser's menu and follow the prompts.
+
 ## Contribution Guide
 
 If you are interested in contributing to this guide, I welcome Pull Requests.

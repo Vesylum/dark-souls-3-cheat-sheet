@@ -1,0 +1,18 @@
+{
+  "name": "Dark Souls 3 Cheat Sheet",
+  "short_name": "DS3 Checklist",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "img/favicon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicon-152.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
