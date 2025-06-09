@@ -23,6 +23,13 @@ python -m http.server
 python -m SimpleHTTPServer
 ```
 
+### Node
+Use a Node-based static server:
+```bash
+npm install
+npm start
+```
+
 ### Offline Availability
 
 The checklist registers a service worker so that once the page has been loaded,
