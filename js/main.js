@@ -499,7 +499,7 @@
     function addCheckbox(el) {
         const $el = $(el);
         // assuming all content lies on the first line
-        const content = $el.html().split('\n')[0];
+        let content = $el.html().split('\n')[0];
         const sublists = $el.children('ul');
 
         content =
