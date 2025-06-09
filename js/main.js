@@ -387,7 +387,7 @@
     // Setup ("bootstrap", haha) styling
     function themeSetup(stylesheet) {
         if(stylesheet === null || stylesheet === undefined) { // if we didn't get a param, then
-            stylesheet = $.jStorage.get("style") || "Standard"; // fall back on "light" if cookie not set
+            stylesheet = $.jStorage.get("style") || "Standard"; // fall back on "Standard" if no value is stored
         }
         $("#bootstrap").attr("href", themes[stylesheet]);
     }
