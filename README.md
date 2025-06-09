@@ -132,3 +132,14 @@ In addition to the filter classes, there is a second type of classes used to con
 | s_ng++ | items shown on NG++ and beyond, e.g., +2 rings |
 
 For third-party library licenses see [third_party_licenses.md](third_party_licenses.md).
+
+## Development Tips
+
+Whenever you modify `index.html`, run the extractor to keep
+`data/playthrough.json` in sync:
+
+```bash
+npm run extract       # or: node scripts/extract-playthrough.js
+```
+
+This reads `index.html` and regenerates the playthrough data in `data/`.
