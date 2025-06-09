@@ -28,8 +28,10 @@ Use a Node-based static server:
 ```bash
 npm install
 npm run lint
+npm test
 npm start
 ```
+`npm test` checks that no duplicate `data-id` values appear in `index.html`.
 
 ### Offline Availability
 
