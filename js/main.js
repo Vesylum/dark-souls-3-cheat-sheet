@@ -205,9 +205,17 @@
         *  Import & Export using textarea instead of files
         */
         $('#profileExportText').click(function(){
-            document.getElementById("profileText").value = JSON.stringify(profiles);
-            document.getElementById("profileText").select();
-            document.execCommand("copy");
+            var textArea = document.getElementById("profileText");
+            textArea.value = JSON.stringify(profiles);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textArea.value).catch(function(){
+                    textArea.select();
+                    document.execCommand("copy");
+                });
+            } else {
+                textArea.select();
+                document.execCommand("copy");
+            }
         });
 
         $('#profileImportText').click(function(){
