@@ -239,6 +239,17 @@
             }
         });
 
+        $('#profileReset').click(function(){
+            if (!confirm('Are you sure you want to reset this profile?')) {
+                return;
+            }
+            $.each(profiles[profilesKey][profiles.current].checklistData, function(key){
+                profiles[profilesKey][profiles.current].checklistData[key] = false;
+            });
+            $.jStorage.set(profilesKey, profiles);
+            populateChecklists();
+        });
+
         $("#toggleHideCompleted").change(function() {
             // Store information about the old scroll position
             const oldPos = $(window).scrollTop();
