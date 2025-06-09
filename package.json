@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node scripts/check-data-ids.js",
     "start": "http-server -p 8000",
-    "lint": "eslint js/main.js"
+    "lint": "eslint js/main.js",
+    "prepare": "husky install",
+    "build": "node scripts/build-playthrough.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,10 @@
   "type": "commonjs",
   "devDependencies": {
     "eslint": "^9.28.0",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.0"
   }
 }
