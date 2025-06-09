@@ -235,7 +235,8 @@
                 $('#profiles').trigger("change");
                 location.reload();
             } catch(e) {
-                alert(e); // error in the above string (in this case, yes)!
+                alert('Failed to import profile data: ' + e.message);
+                console.error(e);
             }
         });
 
@@ -437,7 +438,8 @@
         $('#profiles').trigger("change");
         location.reload();
       } catch(e) {
-        alert(e);
+        alert('Failed to import profile data: ' + e.message);
+        console.error(e);
       }
     }
 
