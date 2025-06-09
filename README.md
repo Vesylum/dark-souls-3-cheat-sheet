@@ -27,6 +27,7 @@ python -m SimpleHTTPServer
 Use a Node-based static server:
 ```bash
 npm install
+npm run lint
 npm start
 ```
 

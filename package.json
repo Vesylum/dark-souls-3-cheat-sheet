@@ -5,7 +5,8 @@
   "main": "sw.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -p 8000"
+    "start": "http-server -p 8000",
+    "lint": "eslint js/main.js"
   },
   "keywords": [],
   "author": "",
