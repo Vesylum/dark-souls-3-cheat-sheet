@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ds3-checklist-v6';
+const CACHE_NAME = 'ds3-checklist-v1.0.0-1749487360887';
 const urlsToCache = [
   './',
   '/',
