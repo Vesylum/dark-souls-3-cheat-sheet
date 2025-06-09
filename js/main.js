@@ -397,9 +397,18 @@
 
     // Setup ("bootstrap", haha) styling
     function themeSetup(stylesheet) {
-        if(stylesheet === null || stylesheet === undefined) { // if we didn't get a param, then
-            stylesheet = $.jStorage.get("style") || "Standard"; // fall back on "Standard" if no value is stored
+        if (stylesheet === null || stylesheet === undefined) {
+            // If no argument was provided, try the stored preference
+            stylesheet = $.jStorage.get("style");
         }
+
+        // Validate the theme exists; fall back to "Standard" if it does not
+        if (!themes[stylesheet]) {
+            // Remove invalid value from storage so later calls don't reuse it
+            $.jStorage.deleteKey("style");
+            stylesheet = "Standard";
+        }
+
         $("#bootstrap").attr("href", themes[stylesheet]);
     }
 
