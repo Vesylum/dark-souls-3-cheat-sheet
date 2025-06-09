@@ -59,6 +59,7 @@ that must be replaced with your Measurement ID:
 ```
 
 Replace `G-XXXXXXXXXX` with your own tracking ID before deploying.
+Contributors should replace the placeholder with their own ID or remove the snippet entirely if tracking is not desired.
 
 ## Contribution Guide
 
