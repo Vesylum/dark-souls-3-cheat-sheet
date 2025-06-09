@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ds3-checklist-v4';
+const CACHE_NAME = 'ds3-checklist-v5';
 const urlsToCache = [
   './',
   './index.html',
@@ -9,6 +9,7 @@ const urlsToCache = [
   './manifest.json',
   './img/favicon.ico',
   './img/favicon-152.png',
+  './img/favicon-512.png',
   './img/pinned-tab-icon.svg',
   './js/jstorage.min.js',
   './vendor/bootstrap/bootstrap.min.css',
