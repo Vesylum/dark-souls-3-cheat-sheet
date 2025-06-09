@@ -19,14 +19,14 @@ This project bundles a few third-party JavaScript libraries. Their licenses are 
 
 ## Bootstrap
 
-- **Files:** `vendor/bootstrap/*.css`, CDN script `https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js`
+- **Files:** `vendor/bootstrap/*.css`, `vendor/bootstrap/*.js`
 - **Version:** 3.4.1
 - **License:** MIT
 - **Official License Text:** <https://github.com/twbs/bootstrap/blob/v3.4.1/LICENSE>
 
 ## Jets
 
-- **File:** CDN script `https://cdnjs.cloudflare.com/ajax/libs/jets/0.15.0/jets.min.js`
+- **File:** `vendor/jets.min.js`
 - **Version:** 0.15.0
 - **License:** MIT
 - **Official License Text:** <https://github.com/wilddeer/Jets.js/blob/master/LICENSE>
