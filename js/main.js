@@ -682,6 +682,9 @@
         $('.nav.navbar-nav li a').on('click', function(el) {
             profiles[profilesKey][profiles.current].current_tab = $(this).attr('href');
 
+            $('.nav.navbar-nav li a[aria-current="page"]').removeAttr('aria-current');
+            $(this).attr('aria-current', 'page');
+
             $.jStorage.set(profilesKey, profiles);
         });
      });
