@@ -4,7 +4,7 @@
     const profilesKey = 'darksouls3_profiles';
 
     var themes = {
-        "Standard" : "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
+        "Standard" : "vendor/bootstrap.min.css",
         "Cosmo" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cosmo/bootstrap.min.css",
         "Cyborg" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cyborg/bootstrap.min.css",
         "Darkly" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/darkly/bootstrap.min.css",
