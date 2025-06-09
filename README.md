@@ -27,8 +27,26 @@ data to force the service worker to fetch the latest files.
 ### Installing the App
 
 In browsers that support Progressive Web Apps (PWAs) you can install this
-checklist like a regular application. Look for the install or "Add to Home
-Screen" option in your browser's menu and follow the prompts.
+checklist like a regular application. Look for the install or "Add to Home Screen" option in your browser's menu and follow the prompts.
+
+## Google Analytics
+
+The page includes Google's gtag snippet so you can track usage with your own
+Analytics account. Near the end of `index.html` you will find a placeholder ID
+that must be replaced with your Measurement ID:
+
+```html
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+Replace `G-XXXXXXXXXX` with your own tracking ID before deploying.
 
 ## Contribution Guide
 
