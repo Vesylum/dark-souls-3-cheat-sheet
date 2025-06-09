@@ -3,7 +3,7 @@
 
     const profilesKey = 'darksouls3_profiles';
 
-    var themes = {
+    const themes = {
         "Standard" : "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
         "Cosmo" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cosmo/bootstrap.min.css",
         "Cyborg" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cyborg/bootstrap.min.css",
@@ -22,7 +22,7 @@
         "Yeti" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/yeti/bootstrap.min.css"
     };
 
-    var profiles = $.jStorage.get(profilesKey, {});
+    let profiles = $.jStorage.get(profilesKey, {});
     if (!('version' in profiles)) profiles.version = 1;
 
     /// assure default values are set
@@ -46,7 +46,7 @@
         populateProfiles();
 
         $('.checkbox input[type="checkbox"]').click(function() {
-            var id = $(this).attr('id');
+            const id = $(this).attr('id');
             const isChecked = $(this).prop('checked');
             profiles[profilesKey][profiles.current].checklistData[id] = isChecked;
             if (isChecked === true) {
@@ -60,7 +60,7 @@
 
         // Theme callback
         $('#themes').change(function(event) {
-            var stylesheet = $('#themes').val();
+            const stylesheet = $('#themes').val();
             themeSetup(stylesheet);
             $.jStorage.set("style", stylesheet);
         });
@@ -102,7 +102,7 @@
 
         $('#profileModalAdd').click(function(event) {
             event.preventDefault();
-            var profile = $.trim($('#profileModalName').val());
+            const profile = $.trim($('#profileModalName').val());
             if (profile.length > 0) {
                 initializeProfile(profile);
 
@@ -116,7 +116,7 @@
 
         $('#profileModalUpdate').click(function(event) {
             event.preventDefault();
-            var newName = $.trim($('#profileModalName').val());
+            const newName = $.trim($('#profileModalName').val());
             if (newName.length > 0 && newName != profiles.current) {
                 profiles[profilesKey][newName] = profiles[profilesKey][profiles.current];
                 delete profiles[profilesKey][profiles.current];
@@ -169,15 +169,15 @@
         });
 
         $('#profileExport').click(function(){
-            var filename = 'profiles.json';
-            var text = JSON.stringify(profiles);
+            const filename = 'profiles.json';
+            const text = JSON.stringify(profiles);
             if (window.Blob && window.navigator.msSaveBlob) {
                 // Microsoft browsers (https://docs.microsoft.com/en-us/microsoft-edge/dev-guide/html5/file-api/blob)
-                var blob = new window.Blob([text]);
+                const blob = new window.Blob([text]);
                 window.navigator.msSaveBlob(blob, filename);
             } else {
                 // All other modern browsers
-                var element = document.createElement('a');
+                const element = document.createElement('a');
                 element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
                 element.setAttribute('download', filename);
                 element.style.display = 'none';
@@ -192,12 +192,12 @@
         });
         /* Will reject if an incorrect file or no file is selected */
         $('input#fileInput').change(function(){
-          var fileInput = document.getElementById('fileInput');
+          const fileInput = document.getElementById('fileInput');
           if(!fileInput.files || !fileInput.files[0] || !/\.json$/.test(fileInput.files[0].name)){
             alert("Bad input file. File should end in .json")
             return;
           }
-          var fr = new FileReader();
+          const fr = new FileReader();
           fr.readAsText(fileInput.files[0]);
           fr.onload = dataLoadCallback;
         });
@@ -206,7 +206,7 @@
         *  Import & Export using textarea instead of files
         */
         $('#profileExportText').click(function(){
-            var textArea = document.getElementById("profileText");
+            const textArea = document.getElementById("profileText");
             textArea.value = JSON.stringify(profiles);
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(textArea.value).catch(function(){
@@ -224,7 +224,7 @@
                 return;
             }
             try {
-                var jsonProfileData = JSON.parse(document.getElementById("profileText").value);
+                const jsonProfileData = JSON.parse(document.getElementById("profileText").value);
                 if (!isValidProfileData(jsonProfileData)) {
                     throw new Error('Invalid profile data');
                 }
@@ -241,11 +241,11 @@
 
         $("#toggleHideCompleted").change(function() {
             // Store information about the old scroll position
-            var oldPos = $(window).scrollTop();
-            var labels = $('ul>li>div>label:visible:not(.completed)');
-            var oldOff = labels.map(function(){return $(this).offset().top});
+            const oldPos = $(window).scrollTop();
+            const labels = $('ul>li>div>label:visible:not(.completed)');
+            const oldOff = labels.map(function(){return $(this).offset().top});
 
-            var hidden = !$(this).is(':checked');
+            const hidden = !$(this).is(':checked');
 
             $('body').toggleClass('hide_completed', !hidden);
 
@@ -253,15 +253,16 @@
             $.jStorage.set(profilesKey, profiles);
             
             // Try to find a reasonable new scroll position
-            for (var a=0; a<oldOff.length-1; a++) if (oldOff[a]>oldPos) break;
-            for (var b=0; b<oldOff.length-1; b++) if (oldOff[b]>oldPos+$(window).height()) break;
-            if (!oldOff.length || $('h2:visible').last().offset().top>oldPos) $('html, body').scrollTop(oldPos);
-            else if (a==b) $('html, body').scrollTop(Math.round(labels.eq(b).offset().top)-Math.round($(window).height()/2));
-            else {var c = Math.round((a+b)/2); $('html, body').scrollTop(oldPos+Math.round(labels.eq(c).offset().top)-Math.round(oldOff[c]));}
+            let a, b;
+            for (a = 0; a < oldOff.length - 1; a++) if (oldOff[a] > oldPos) break;
+            for (b = 0; b < oldOff.length - 1; b++) if (oldOff[b] > oldPos + $(window).height()) break;
+            if (!oldOff.length || $('h2:visible').last().offset().top > oldPos) $('html, body').scrollTop(oldPos);
+            else if (a === b) $('html, body').scrollTop(Math.round(labels.eq(b).offset().top) - Math.round($(window).height() / 2));
+            else { const c = Math.round((a + b) / 2); $('html, body').scrollTop(oldPos + Math.round(labels.eq(c).offset().top) - Math.round(oldOff[c])); }
         });
 
         $('[data-ng-toggle]').change(function() {
-            var journey = $(this).data('ng-toggle');
+            const journey = $(this).data('ng-toggle');
 
             profiles[profilesKey][profiles.current].journey = +journey
             $.jStorage.set(profilesKey, profiles);
@@ -274,9 +275,9 @@
         });
 
         $('[data-item-toggle]').change(function() {
-            var type = $(this).data('item-toggle');
-            var to_hide = $(this).is(':checked');
-            var item_toggles = $(this).closest('.btn-group.btn-group-vertical').find('[data-item-toggle]');
+            const type = $(this).data('item-toggle');
+            const to_hide = $(this).is(':checked');
+            const item_toggles = $(this).closest('.btn-group.btn-group-vertical').find('[data-item-toggle]');
 
             profiles[profilesKey][profiles.current].hidden_categories[type] = to_hide;
             $.jStorage.set(profilesKey, profiles);
@@ -295,8 +296,8 @@
         });
 
         $('[data-category-toggle]').change(function() {
-            var to_hide = $(this).is(':checked');
-            var item_toggles = $(this).closest('.btn-group.btn-group-vertical').find('[data-item-toggle]');
+            const to_hide = $(this).is(':checked');
+            const item_toggles = $(this).closest('.btn-group.btn-group-vertical').find('[data-item-toggle]');
 
             // Change all child items to the same state as the category
             if (to_hide || (item_toggles.length === item_toggles.filter(':checked').length)) {
@@ -355,8 +356,8 @@
     /// used on page load or when switching profiles
     function restoreState(profile_name) {
         $('a[href$="_col"]').each(function() {
-            var value = profiles[profilesKey][profile_name].collapsed[$(this).attr('href')];
-            var active = $(this).hasClass('collapsed');
+            const value = profiles[profilesKey][profile_name].collapsed[$(this).attr('href')];
+            const active = $(this).hasClass('collapsed');
 
             // interesting note: this condition is the same as (value ^ active),
             // but there's no logical xor in JS as far as I know; also, this is more readable
@@ -365,17 +366,17 @@
             }
         });
 
-        var $button = $("#toggleHideCompleted");
-        var hide_completed_state = profiles[profilesKey][profile_name].hide_completed;
-        var button_active = $button.is(':checked');
+        const $button = $("#toggleHideCompleted");
+        const hide_completed_state = profiles[profilesKey][profile_name].hide_completed;
+        const button_active = $button.is(':checked');
         if ((hide_completed_state && !button_active) || (!hide_completed_state && button_active)) {
             $button.click();
         }
 
         $('[data-ng-toggle="' + profiles[profilesKey][profile_name].journey + '"]').click().change();
         $.each(profiles[profilesKey][profile_name].hidden_categories, function(key, value) {
-            var $el = $('[data-item-toggle="' + key + '"]');
-            var active = $el.is(':checked');
+            const $el = $('[data-item-toggle="' + key + '"]');
+            const active = $el.is(':checked');
 
             if ((value && !active) || (!value && active)) {
                 $el.click();
@@ -392,8 +393,8 @@
     }
 
     function buildThemeSelection() {
-        var style = $.jStorage.get("style") || "Standard";
-        var themeSelect = $("#themes");
+        const style = $.jStorage.get("style") || "Standard";
+        const themeSelect = $("#themes");
         $.each(themes, function(key, value){
             themeSelect.append(
                 $('<option></option>').val(key).html(key + " Theme")
@@ -405,7 +406,7 @@
 
     function dataLoadCallback(arg){
       try {
-        var jsonProfileData = JSON.parse(arg.currentTarget.result);
+        const jsonProfileData = JSON.parse(arg.currentTarget.result);
         if (!isValidProfileData(jsonProfileData)) {
           throw new Error('Invalid profile data');
         }
@@ -447,15 +448,15 @@
 
     function calculateTotals() {
         $('[id$="_overall_total"]').each(function(index) {
-            var type = this.id.match(/(.*)_overall_total/)[1];
-            var overallCount = 0, overallChecked = 0;
+            const type = this.id.match(/(.*)_overall_total/)[1];
+            let overallCount = 0, overallChecked = 0;
             $('[id^="' + type + '_totals_"]').each(function(index) {
-                var regex = new RegExp(type + '_totals_(.*)');
-                var regexFilter = new RegExp('^playthrough_(.*)');
-                var i = parseInt(this.id.match(regex)[1]);
-                var count = 0, checked = 0;
-                for (var j = 1; ; j++) {
-                    var checkbox = $('#' + type + '_' + i + '_' + j);
+                const regex = new RegExp(type + '_totals_(.*)');
+                const regexFilter = new RegExp('^playthrough_(.*)');
+                const i = parseInt(this.id.match(regex)[1]);
+                let count = 0, checked = 0;
+                for (let j = 1; ; j++) {
+                    const checkbox = $('#' + type + '_' + i + '_' + j);
                     if (checkbox.length === 0) {
                         break;
                     }
@@ -496,10 +497,10 @@
     }
 
     function addCheckbox(el) {
-        var $el = $(el);
+        const $el = $(el);
         // assuming all content lies on the first line
-        var content = $el.html().split('\n')[0];
-        var sublists = $el.children('ul');
+        const content = $el.html().split('\n')[0];
+        const sublists = $el.children('ul');
 
         content =
             '<div class="checkbox">' +
@@ -518,7 +519,7 @@
     }
 
     function canDelete() {
-        var count = 0;
+        let count = 0;
         $.each(profiles[profilesKey], function(index, value) {
             count++;
         });
@@ -526,13 +527,13 @@
     }
 
     function getFirstProfile() {
-        for (var profile in profiles[profilesKey]) {
+        for (const profile in profiles[profilesKey]) {
             return profile;
         }
     }
 
     function canFilter(entry) {
-        var classAttr = entry.attr('class');
+        const classAttr = entry.attr('class');
         if (!classAttr) {
             return false;
         }
@@ -540,16 +541,16 @@
             // If some filters are enabled, all entries marked f_none are automatically filtered as well 
             return Object.values(profiles[profilesKey][profiles.current].hidden_categories).some(function(f){return f});
         }
-        var classList = classAttr.split(/\s+/);
-        for (var i = 0; i < classList.length; i++) {
+        const classList = classAttr.split(/\s+/);
+        for (let i = 0; i < classList.length; i++) {
             // Hide(h) or show(s) entries based on journey number
             if ((classList[i].match(/^h_ng\+*$/) && classList[i].match(/^h_ng(\+*)$/)[1].length < profiles[profilesKey][profiles.current].journey) ||
                (classList[i].match(/^s_ng\+*$/) && classList[i].match(/^s_ng(\+*)$/)[1].length >= profiles[profilesKey][profiles.current].journey)) {
                 return true;
             }
         }
-        var foundMatch = 0;
-        for (var i = 0; i < classList.length; i++) {
+        let foundMatch = 0;
+        for (let i = 0; i < classList.length; i++) {
             if (!classList[i].match(/^f_.*/)) {
                 continue;
             }
@@ -582,7 +583,7 @@
      * ----------------------------------
      */
     $(function() {
-        var jets = [new Jets({
+        const jets = [new Jets({
             searchTag: '#playthrough_search',
             contentTag: '#playthrough_list ul'
         }), new Jets({
@@ -615,8 +616,8 @@
      * -------------------------
      */
     $(function() {
-        var offset = 220;
-        var duration = 500;
+        const offset = 220;
+        const duration = 500;
         $(window).scroll(function() {
             if ($(this).scrollTop() > offset) {
                 $('.fadingbutton').fadeIn(duration);
@@ -650,8 +651,8 @@
 
         // register on click handlers to store state
         $('a[href$="_col"]').on('click', function(el) {
-            var collapsed_key = $(this).attr('href');
-            var saved_tab_state = !!profiles[profilesKey][profiles.current].collapsed[collapsed_key];
+            const collapsed_key = $(this).attr('href');
+            const saved_tab_state = !!profiles[profilesKey][profiles.current].collapsed[collapsed_key];
 
             profiles[profilesKey][profiles.current].collapsed[$(this).attr('href')] = !saved_tab_state;
 
