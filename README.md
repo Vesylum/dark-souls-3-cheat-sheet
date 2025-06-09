@@ -46,9 +46,9 @@ from older versions are removed so the newest deployment replaces outdated
 files. If updates to the site don't appear after reloading, clear your browser
 data to force the service worker to fetch the latest files.
 
-When you change any files that the service worker caches, bump the
-`CACHE_NAME` value in `sw.js`. This forces browsers to refresh their caches
-with the new assets—otherwise visitors may continue using stale files.
+Whenever you modify the `urlsToCache` list—or any of the files it references—
+increment the `CACHE_NAME` constant in `sw.js`. This forces browsers to refresh
+their caches with the updated assets so visitors aren't served stale files.
 
 Bootstrap and the Jets search library are provided locally in the `vendor`
 directory and cached by the service worker along with the rest of the site's

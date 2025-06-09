@@ -1,6 +1,7 @@
-const CACHE_NAME = 'ds3-checklist-v5';
+const CACHE_NAME = 'ds3-checklist-v6';
 const urlsToCache = [
   './',
+  '/',
   './index.html',
   './js/main.js',
   './js/jquery.min.js',
