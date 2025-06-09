@@ -41,6 +41,10 @@ from older versions are removed so the newest deployment replaces outdated
 files. If updates to the site don't appear after reloading, clear your browser
 data to force the service worker to fetch the latest files.
 
+When you change any files that the service worker caches, bump the
+`CACHE_NAME` value in `sw.js`. This forces browsers to refresh their caches
+with the new assets—otherwise visitors may continue using stale files.
+
 External CDN assets (e.g. Bootstrap stylesheets and the Jets search library) are
 cached when available. If these requests fail the service worker still installs,
 but those files won't be available offline. Hosting these libraries locally will
