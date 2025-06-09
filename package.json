@@ -4,7 +4,7 @@
   "description": "To view the cheat sheet [click here](https://vesylum.github.io/dark-souls-3-cheat-sheet/).",
   "main": "sw.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node scripts/check-data-ids.js",
     "start": "http-server -p 8000",
     "lint": "eslint js/main.js"
   },
