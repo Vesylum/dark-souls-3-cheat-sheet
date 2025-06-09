@@ -33,6 +33,11 @@ npm start
 ```
 `npm test` checks that no duplicate `data-id` values appear in `index.html`.
 
+### Themes
+
+Your chosen theme is saved in the browser. If an unknown value is found it
+defaults back to the **Standard** style and the invalid entry is removed.
+
 ### Offline Availability
 
 The checklist registers a service worker so that once the page has been loaded,
