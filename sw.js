@@ -9,7 +9,6 @@ const urlsToCache = [
   './manifest.json',
   './img/favicon.ico',
   './img/favicon-152.png',
-  './img/favicon-512.png',
   './img/pinned-tab-icon.svg',
   './js/jstorage.min.js',
   './vendor/bootstrap/bootstrap.min.css',
