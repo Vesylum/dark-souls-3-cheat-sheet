@@ -37,7 +37,9 @@ npm start
 
 Run `npm run build` to regenerate `index.html` from
 `index.template.html` and `data/playthrough.json`. Rebuild whenever the
-template or playthrough data changes.
+template or playthrough data changes. This command also updates the
+service worker's `CACHE_NAME` using the package version and a timestamp
+so browsers fetch the latest assets after each deployment.
 
 ### Themes
 
@@ -52,9 +54,10 @@ from older versions are removed so the newest deployment replaces outdated
 files. If updates to the site don't appear after reloading, clear your browser
 data to force the service worker to fetch the latest files.
 
-Whenever you modify the `urlsToCache` list—or any of the files it references—
-increment the `CACHE_NAME` constant in `sw.js`. This forces browsers to refresh
-their caches with the updated assets so visitors aren't served stale files.
+The build script automatically updates the `CACHE_NAME` constant in
+`sw.js` using the package version and a timestamp. This forces browsers to
+refresh their caches with the updated assets so visitors aren't served
+stale files.
 
 Bootstrap and the Jets search library are provided locally in the `vendor`
 directory and cached by the service worker along with the rest of the site's
