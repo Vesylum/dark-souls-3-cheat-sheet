@@ -9,11 +9,18 @@ The walkthrough is thanks to [DeathGodGarra's NPC Side Quests Guide V2](https://
 ## Running Locally
 
 You can open `index.html` directly in a browser, but many features work best when
-served over HTTP. Start a local server with Python and navigate to
-`http://localhost:8000`:
+served over HTTP. Make sure Python is installed and run one of the following
+commands from the repository root. After starting the server, navigate to
+`http://localhost:8000` in your browser.
 
+### Python 3
 ```bash
 python -m http.server
+```
+
+### Python 2
+```bash
+python -m SimpleHTTPServer
 ```
 
 ### Offline Availability
