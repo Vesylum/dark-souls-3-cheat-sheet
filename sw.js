@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ds3-checklist-v6';
+const CACHE_NAME = 'ds3-checklist-v7';
 const urlsToCache = [
   './',
   '/',
@@ -57,6 +57,10 @@ self.addEventListener('activate', event => {
   );
 });
 self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET' ||
+      new URL(event.request.url).origin !== self.location.origin) {
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then(cacheRes =>
       cacheRes ||
