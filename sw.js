@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ds3-checklist-v3';
+const CACHE_NAME = 'ds3-checklist-v4';
 const urlsToCache = [
   './',
   './index.html',
@@ -26,7 +26,9 @@ const urlsToCache = [
   './vendor/bootstrap/spacelab.min.css',
   './vendor/bootstrap/superhero.min.css',
   './vendor/bootstrap/united.min.css',
-  './vendor/bootstrap/yeti.min.css'
+  './vendor/bootstrap/yeti.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/jets/0.15.0/jets.min.js'
 ];
 self.addEventListener('install', event => {
   self.skipWaiting();
