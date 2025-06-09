@@ -117,3 +117,5 @@ In addition to the filter classes, there is a second type of classes used to con
 | h_ng+  | items hidden on NG+ and beyond, e.g., Ashen Estus Flask |
 | s_ng+  | items shown on NG+ and beyond, e.g., +1 rings |
 | s_ng++ | items shown on NG++ and beyond, e.g., +2 rings |
+
+For third-party library licenses see [third_party_licenses.md](third_party_licenses.md).
