@@ -59,8 +59,13 @@ Place the resulting value in the `integrity` attribute of the corresponding tag 
 
 ### Installing the App
 
-In browsers that support Progressive Web Apps (PWAs) you can install this
-checklist like a regular application. Look for the install or "Add to Home Screen" option in your browser's menu and follow the prompts.
+In browsers that support Progressive Web Apps (PWAs) you can install this checklist like a regular application. Look for the install or "Add to Home Screen" option in your browser's menu and follow the prompts.
+
+### Resetting Profile Data
+
+Use the **Reset Profile** button on the Options tab to clear all checklist
+progress for the selected profile. A confirmation prompt appears before
+everything is unchecked. Other profile settings are preserved.
 
 ## Google Analytics
 
