@@ -511,9 +511,9 @@
                 this.innerHTML = overallChecked + '/' + overallCount;
                 $(this).removeClass('done').addClass('in_progress');
             }
+        });
         // Update textarea for profile export
         document.getElementById("profileText").value = JSON.stringify(profiles);
-        });
     }
 
     function addCheckbox(el) {
