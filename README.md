@@ -24,7 +24,7 @@ python -m SimpleHTTPServer
 ```
 
 ### Node
-Use a Node-based static server:
+Node 20 is expected. Use a Node-based static server:
 ```bash
 npm install
 npm run lint
