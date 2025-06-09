@@ -72,6 +72,16 @@ that must be replaced with your Measurement ID:
 Replace `G-XXXXXXXXXX` with your own tracking ID before deploying.
 Contributors should replace the placeholder with their own ID or remove the snippet entirely if tracking is not desired.
 
+## Linting
+
+Run ESLint to check JavaScript source files for issues:
+
+```bash
+npm run lint
+```
+
+This will lint `js/main.js`, `js/jquery.highlight.js`, and `sw.js`.
+
 ## Contribution Guide
 
 If you are interested in contributing to this guide, I welcome Pull Requests.
