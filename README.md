@@ -36,6 +36,17 @@ cached when available. If these requests fail the service worker still installs,
 but those files won't be available offline. Hosting these libraries locally will
 ensure they work without a network connection.
 
+### Updating CDN Integrity Hashes
+
+Link and script tags for third‑party libraries include [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) hashes.
+If you update these dependencies, generate new hashes with:
+
+```bash
+curl -Ls <url> | openssl dgst -sha384 -binary | base64 -w0
+```
+
+Place the resulting value in the `integrity` attribute of the corresponding tag in `index.html` and keep `crossorigin="anonymous"`.
+
 ### Installing the App
 
 In browsers that support Progressive Web Apps (PWAs) you can install this
