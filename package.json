@@ -8,7 +8,8 @@
     "start": "http-server -p 8000",
     "lint": "eslint js/main.js",
     "prepare": "husky install",
-    "build": "node scripts/build-playthrough.js"
+    "build": "node scripts/build-playthrough.js",
+    "extract": "node scripts/extract-playthrough.js"
   },
   "keywords": [],
   "author": "",
