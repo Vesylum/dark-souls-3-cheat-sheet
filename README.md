@@ -74,8 +74,10 @@ everything is unchecked. Other profile settings are preserved.
 ## Google Analytics
 
 The page includes Google's gtag snippet so you can track usage with your own
-Analytics account. Near the end of `index.html` you will find a placeholder ID
-that must be replaced with your Measurement ID:
+Analytics account. Near the end of `index.template.html` and the generated
+`index.html` the snippet is wrapped in HTML comments so it doesn't execute by
+default. Inside the comments you will find a placeholder ID that must be
+replaced with your Measurement ID:
 
 ```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -88,8 +90,9 @@ that must be replaced with your Measurement ID:
 </script>
 ```
 
-Replace `G-XXXXXXXXXX` with your own tracking ID before deploying.
-Contributors should replace the placeholder with their own ID or remove the snippet entirely if tracking is not desired.
+To enable tracking remove the surrounding comment tags and replace
+`G-XXXXXXXXXX` with your own ID before deploying. Contributors can either do
+this or delete the block entirely if analytics are not desired.
 
 ## Contribution Guide
 
