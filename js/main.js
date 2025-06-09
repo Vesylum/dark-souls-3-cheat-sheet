@@ -47,7 +47,8 @@
 
         $('.checkbox input[type="checkbox"]').click(function() {
             var id = $(this).attr('id');
-            var isChecked = profiles[profilesKey][profiles.current].checklistData[id] = $(this).prop('checked');
+            const isChecked = $(this).prop('checked');
+            profiles[profilesKey][profiles.current].checklistData[id] = isChecked;
             if (isChecked === true) {
               $('[data-id="'+id+'"] label').addClass('completed');
             } else {
