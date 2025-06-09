@@ -31,6 +31,11 @@ from older versions are removed so the newest deployment replaces outdated
 files. If updates to the site don't appear after reloading, clear your browser
 data to force the service worker to fetch the latest files.
 
+External CDN assets (e.g. Bootstrap stylesheets and the Jets search library) are
+cached when available. If these requests fail the service worker still installs,
+but those files won't be available offline. Hosting these libraries locally will
+ensure they work without a network connection.
+
 ### Installing the App
 
 In browsers that support Progressive Web Apps (PWAs) you can install this

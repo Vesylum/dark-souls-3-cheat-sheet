@@ -30,7 +30,15 @@ const urlsToCache = [
 self.addEventListener('install', event => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      return Promise.all(
+        urlsToCache.map(url =>
+          cache.add(url).catch(err => {
+            console.warn('Cache add failed for', url, err);
+          })
+        )
+      );
+    })
   );
 });
 self.addEventListener('activate', event => {
