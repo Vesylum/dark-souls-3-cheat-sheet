@@ -9,7 +9,23 @@ const urlsToCache = [
   './img/favicon.ico',
   './img/favicon-152.png',
   './img/pinned-tab-icon.svg',
-  './js/jstorage.min.js'
+  './js/jstorage.min.js',
+  'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cosmo/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cyborg/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/darkly/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/flatly/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/journal/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/lumen/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/paper/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/readable/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/sandstone/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/simplex/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/slate/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/spacelab/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/superhero/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/united/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/yeti/bootstrap.min.css'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
