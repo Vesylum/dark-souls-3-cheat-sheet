@@ -4,22 +4,22 @@
     const profilesKey = 'darksouls3_profiles';
 
     var themes = {
-        "Standard" : "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
-        "Cosmo" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cosmo/bootstrap.min.css",
-        "Cyborg" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/cyborg/bootstrap.min.css",
-        "Darkly" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/darkly/bootstrap.min.css",
-        "Flatly" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/flatly/bootstrap.min.css",
-        "Journal" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/journal/bootstrap.min.css",
-        "Lumen" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/lumen/bootstrap.min.css",
-        "Paper" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/paper/bootstrap.min.css",
-        "Readable" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/readable/bootstrap.min.css",
-        "Sandstone" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/sandstone/bootstrap.min.css",
-        "Simplex" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/simplex/bootstrap.min.css",
-        "Slate" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/slate/bootstrap.min.css",
-        "Spacelab" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/spacelab/bootstrap.min.css",
-        "Superhero" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/superhero/bootstrap.min.css",
-        "United" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/united/bootstrap.min.css",
-        "Yeti" : "https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/yeti/bootstrap.min.css"
+        "Standard" : "css/vendor/bootstrap/bootstrap.min.css",
+        "Cosmo" : "css/vendor/bootswatch/cosmo.min.css",
+        "Cyborg" : "css/vendor/bootswatch/cyborg.min.css",
+        "Darkly" : "css/vendor/bootswatch/darkly.min.css",
+        "Flatly" : "css/vendor/bootswatch/flatly.min.css",
+        "Journal" : "css/vendor/bootswatch/journal.min.css",
+        "Lumen" : "css/vendor/bootswatch/lumen.min.css",
+        "Paper" : "css/vendor/bootswatch/paper.min.css",
+        "Readable" : "css/vendor/bootswatch/readable.min.css",
+        "Sandstone" : "css/vendor/bootswatch/sandstone.min.css",
+        "Simplex" : "css/vendor/bootswatch/simplex.min.css",
+        "Slate" : "css/vendor/bootswatch/slate.min.css",
+        "Spacelab" : "css/vendor/bootswatch/spacelab.min.css",
+        "Superhero" : "css/vendor/bootswatch/superhero.min.css",
+        "United" : "css/vendor/bootswatch/united.min.css",
+        "Yeti" : "css/vendor/bootswatch/yeti.min.css"
     };
 
     var profiles = $.jStorage.get(profilesKey, {});

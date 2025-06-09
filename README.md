@@ -29,6 +29,10 @@ data to force the service worker to fetch the latest files.
 In browsers that support Progressive Web Apps (PWAs) you can install this
 checklist like a regular application. Look for the install or "Add to Home
 Screen" option in your browser's menu and follow the prompts.
+### Theme Styles
+
+The Bootstrap and Bootswatch stylesheets are included locally under `css/vendor/`. They were downloaded from the official [Bootstrap](https://github.com/twbs/bootstrap) and [Bootswatch](https://github.com/thomaspark/bootswatch) repositories.
+
 
 ## Contribution Guide
 
