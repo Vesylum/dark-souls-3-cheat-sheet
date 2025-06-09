@@ -3,6 +3,8 @@
   "short_name": "DS3 Checklist",
   "start_url": "./index.html",
   "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
   "icons": [
     {
       "src": "img/favicon-152.png",
