@@ -89,8 +89,8 @@ h3 {
 }
 
 .btn:focus, .btn.active:focus {
-    outline: none;
-    outline: 0;
+  outline: 2px solid #ffa500;
+  outline-offset: 2px;
 }
 
 /* Icon when the collapsible content is shown */
