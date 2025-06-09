@@ -33,6 +33,12 @@ npm start
 ```
 `npm test` checks that no duplicate `data-id` values appear in `index.html`.
 
+### Building `index.html`
+
+Run `npm run build` to regenerate `index.html` from
+`index.template.html` and `data/playthrough.json`. Rebuild whenever the
+template or playthrough data changes.
+
 ### Themes
 
 Your chosen theme is saved in the browser. If an unknown value is found it
