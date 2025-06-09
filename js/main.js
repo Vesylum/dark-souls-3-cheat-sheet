@@ -59,13 +59,13 @@
         });
 
         // Theme callback
-        $('#themes').change(function(event) {
+        $('#themes').change(function() {
             const stylesheet = $('#themes').val();
             themeSetup(stylesheet);
             $.jStorage.set("style", stylesheet);
         });
 
-        $('#profiles').change(function(event) {
+        $('#profiles').change(function() {
             profiles.current = $(this).val();
             $.jStorage.set(profilesKey, profiles);
 
@@ -415,7 +415,7 @@
     function buildThemeSelection() {
         const style = $.jStorage.get("style") || "Standard";
         const themeSelect = $("#themes");
-        $.each(themes, function(key, value){
+        $.each(themes, function(key){
             themeSelect.append(
                 $('<option></option>').val(key).html(key + " Theme")
             );
@@ -443,7 +443,7 @@
 
     function populateProfiles() {
         $('#profiles').empty();
-        $.each(profiles[profilesKey], function(index, value) {
+        $.each(profiles[profilesKey], function(index) {
             $('#profiles').append($("<option></option>").attr('value', index).text(index));
         });
         $('#profiles').val(profiles.current);
@@ -467,10 +467,10 @@
     }
 
     function calculateTotals() {
-        $('[id$="_overall_total"]').each(function(index) {
+        $('[id$="_overall_total"]').each(function() {
             const type = this.id.match(/(.*)_overall_total/)[1];
             let overallCount = 0, overallChecked = 0;
-            $('[id^="' + type + '_totals_"]').each(function(index) {
+            $('[id^="' + type + '_totals_"]').each(function() {
                 const regex = new RegExp(type + '_totals_(.*)');
                 const regexFilter = new RegExp('^playthrough_(.*)');
                 const i = parseInt(this.id.match(regex)[1]);
@@ -540,7 +540,7 @@
 
     function canDelete() {
         let count = 0;
-        $.each(profiles[profilesKey], function(index, value) {
+        $.each(profiles[profilesKey], function() {
             count++;
         });
         return (count > 1);
@@ -603,19 +603,22 @@
      * ----------------------------------
      */
     $(function() {
-        const jets = [new Jets({
+        new Jets({
             searchTag: '#playthrough_search',
             contentTag: '#playthrough_list ul'
-        }), new Jets({
+        });
+        new Jets({
             searchTag: '#item_search',
             contentTag: '#item_list h4, #item_list ul'// This does not mean that we are searching inside the content of both <h4> and <ul> tags
-        }), new Jets({
+        });
+        new Jets({
             searchTag: '#weapons_search',
             contentTag: '#weapons_list h4, #weapons_list ul'// The outcome is that all <h4> tags are hidden while searching inside <ul> tags
-        }), new Jets({
+        });
+        new Jets({
             searchTag: '#armors_search',
             contentTag: '#armors_list ul'
-        })];
+        });
 
         function setupSearchHighlight(searchSelector, listSelector) {
             $(searchSelector).on('keyup', function() {
@@ -670,7 +673,7 @@
         }
 
         // register on click handlers to store state
-        $('a[href$="_col"]').on('click', function(el) {
+        $('a[href$="_col"]').on('click', function() {
             const collapsed_key = $(this).attr('href');
             const saved_tab_state = !!profiles[profilesKey][profiles.current].collapsed[collapsed_key];
 
@@ -679,7 +682,7 @@
             $.jStorage.set(profilesKey, profiles);
         });
 
-        $('.nav.navbar-nav li a').on('click', function(el) {
+        $('.nav.navbar-nav li a').on('click', function() {
             profiles[profilesKey][profiles.current].current_tab = $(this).attr('href');
 
             $('.nav.navbar-nav li a[aria-current="page"]').removeAttr('aria-current');
