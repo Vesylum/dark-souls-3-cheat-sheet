@@ -50,21 +50,10 @@ When you change any files that the service worker caches, bump the
 `CACHE_NAME` value in `sw.js`. This forces browsers to refresh their caches
 with the new assets—otherwise visitors may continue using stale files.
 
-External CDN assets (e.g. Bootstrap stylesheets and the Jets search library) are
-cached when available. If these requests fail the service worker still installs,
-but those files won't be available offline. Hosting these libraries locally will
-ensure they work without a network connection.
-
-### Updating CDN Integrity Hashes
-
-Link and script tags for third‑party libraries include [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) hashes.
-If you update these dependencies, generate new hashes with:
-
-```bash
-curl -Ls <url> | openssl dgst -sha384 -binary | base64 -w0
-```
-
-Place the resulting value in the `integrity` attribute of the corresponding tag in `index.html` and keep `crossorigin="anonymous"`.
+Bootstrap and the Jets search library are provided locally in the `vendor`
+directory and cached by the service worker along with the rest of the site's
+assets. This ensures the checklist works offline without relying on a CDN or
+updating integrity hashes.
 
 ### Installing the App
 
